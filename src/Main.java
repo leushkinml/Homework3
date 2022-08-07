@@ -5,6 +5,7 @@ public class Main {
         task3();
         task4();
         task5();
+        task6();
     }
 
     public static void task1() {
@@ -54,15 +55,12 @@ public class Main {
         int chekDistanc = (deliveryDistance - 20) % 40;
         int addDays = (deliveryDistance - 20) / 40;
         if (deliveryDistance <= 20 && deliveryDistance > 0) {
-        System.out.println("Потребуется 1 день");
-        }
-        else if (deliveryDistance > 20 && chekDistanc == 0) {
+            System.out.println("Потребуется 1 день");
+        } else if (deliveryDistance > 20 && chekDistanc == 0) {
             System.out.println("Потребуется " + (1 + addDays) + " дней.");
-        }
-        else if (deliveryDistance > 20 && chekDistanc != 0) {
+        } else if (deliveryDistance > 20 && chekDistanc != 0) {
             System.out.println("Потребуется " + (2 + addDays) + " дней.");
-        }
-        else {
+        } else {
             System.out.println("Мы не доставляем в прошлое.");
         }
     }
@@ -94,5 +92,26 @@ public class Main {
             default:
                 System.out.println("Такого месяца не существует.");
         }
+    }
+
+    public static void task6() {
+        int age = 19;
+        double salary = 58_000;
+        double limit;
+
+        if (age < 23 && salary < 50_000) {
+            limit = salary * 2;
+        } else if (age >= 23 && salary < 50_000) {
+            limit = salary * 3;
+        } else if (age < 23 && salary >= 50_000 && salary < 80_000) {
+            limit = salary * 2 * 1.2;
+        } else if (age >= 23 && salary >= 50_000 && salary < 80_000) {
+            limit = salary * 3 * 1.2;
+        } else if (age < 23 && salary >= 80_000) {
+            limit = salary * 2 * 1.5;
+        } else {
+            limit = salary * 3 * 1.5;
+        }
+        System.out.println("Мы готовы выдать вам кредитную карту с лимитом " + limit + " рублей.");
     }
 }
